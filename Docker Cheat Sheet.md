@@ -1,7 +1,8 @@
 ## Docker Cheat Sheet” (Personal Bible) ##
 
 ## Dockerfile structure: 
-```bash
+
+
 FROM -  Select the base image and its version based on the application code, Package.josn files.
 WORKDIR - Create the working directory for conatiner (everything happnes inside the directory)
 COPY - Copy the dependencies inside the working directory(package*.json/requirements.txt,etc)
@@ -9,9 +10,9 @@ RUN - Run command used while creating the container (use to build/insatll depend
 EXPOSE - See the application code and expose the container port for the application
 CMD / ENTRYPOINT - These command used to run when conatiner/image is created (check the package.json file>under scripts file or code mentioned run in this command)
 
-```
 
-* You see:
+
+## You see:
 server.js
 routes/user.js
 mongoose.connect(...)
@@ -21,7 +22,8 @@ mongoose.connect(...)
 Backend → Node base image
 No multi-stage needed
 Create backend/Dockerfile
-You also see:
+
+## You also see:
 src/App.jsx
 npm run build
 
@@ -29,14 +31,14 @@ npm run build
 Frontend → Multi-stage Dockerfile
 Node (build) → Nginx (serve)
 
-* You see:
+
+## You see:
 MongoDB URI in .env
 
 👉 Decision:
 Use mongo:latest in docker-compose.yml
 
 ## Docker Compose structure:
-```
 services - Defines all containers in the application.Each service = one container (backend, frontend, db)
 
 build - Specifies how to build an image from a Dockerfile.
@@ -58,10 +60,9 @@ volumes:
 network - Bridge/host network
 networks:
   app-network:
-```
 
 ## Rebuild MERN Setup from Scratch (Weekly)
-```bash
+
 Once a week:
 
 Don’t reuse old code
@@ -75,7 +76,7 @@ docker-compose.yml
 
 ## Use Pattern-Based Learning (Instead of Memorizing)
 
-```bash
+
 Example pattern for backend Dockerfile:
 
 Base image → setup → install deps → copy code → run app
@@ -84,4 +85,3 @@ Example pattern for compose:
 
 Each service = container
 Services communicate via service name (DNS)
-```
