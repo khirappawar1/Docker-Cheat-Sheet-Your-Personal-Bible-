@@ -107,4 +107,4 @@ Services communicate via service name (DNS)
 
 ## docker architecture
 
-![alt text](1_9zj9m4XSk9Ls3UuhGkBRVA.png)
+![alt text](docker_architecture.png)
